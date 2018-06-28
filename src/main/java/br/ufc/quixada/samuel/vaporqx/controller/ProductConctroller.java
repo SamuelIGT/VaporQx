@@ -42,20 +42,20 @@ public class ProductConctroller {
 	}
 	
 	@PostMapping("/product/save")
-	public ModelAndView save(Product product,@RequestParam(value= "image") MultipartFile image, BindingResult result) {
-		if(result.hasErrors()) {
+	public String save(Product product,@RequestParam(value= "image") MultipartFile image, BindingResult result) {
+		/*if(result.hasErrors()) {
 			return add(product);
-		}
+		}*/
 		
 		service.saveProduct(product, image);
-		return index();
+		return "redirect:/";
 	}
 	
-	@DeleteMapping("/product/{id}")
-	public ModelAndView removeProduct(@PathVariable Long id) {
+	@RequestMapping("/product/remove/{id}")
+	public String removeProduct(@PathVariable Long id) {
 		service.removeProduct(id);
 		
-		return index();
+		return "redirect:/";
 		
 	}
 	
