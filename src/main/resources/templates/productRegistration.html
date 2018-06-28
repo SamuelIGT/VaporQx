@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8" />
+    <title>Cadastro de Produto</title>
+</head>
+<body>
+    <form th:action="@{/product/save}" enctype="multipart/form-data" th:object="${product}" method="POST">
+
+        <div class="row">
+          <!--<div class="alert alert-danger" th:if="${#fields.hasAnyErrors()}">
+            <div th:each="detailedError : ${#fields.detailedErrors()}">
+              <span th:text="${detailedError.message}"></span>
+            </div>-->
+    
+            <div style="height: 200px;">
+              
+            </div>
+    
+            <div class="container">
+              <div class="col-md-1">
+                <input type="hidden" class="form-control input-sm" id="id" th:field="*{id}"></input>
+              </div>
+
+              <div class="col-md-4 input-field">
+                <label>Nome</label>
+                <input type="text" th:field="*{name}" autofocus="autofocus" placeholder="Informe o nome" maxlength="50"></input>
+              </div>
+
+              <div class="col-md-4 input-field">
+                <label>Descrição</label>
+                <input type="text" th:field="*{description}" autofocus="autofocus" placeholder="Descrição do produto" maxlength="250"></input>
+              </div>
+
+              <div class="col-md-4 input-field">
+                <label>Preço</label>
+                <input type="number" th:field="*{price}" autofocus="autofocus" placeholder="Informe o preço" maxlength="50"></input>
+              </div>
+              
+              <div class="col-md-4 input-field">
+                    <label>Imagem</label>
+                    <input type="file" name="image">
+                  </div>
+              
+              <div>
+                  <button type="submit" class="waves-effect waves-light btn right" >Salvar</button>
+                  <a th:href="@{/}" class="btn btn-sm btn-default">Cancelar</a>
+              </div>   
+            </div>
+        </div>
+          </form>
+</body>
+</html>
